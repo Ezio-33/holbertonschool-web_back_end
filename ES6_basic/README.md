@@ -141,11 +141,8 @@ module.exports = {
     },
   ],
 };
-```
 
 N'oubliez pas d'exécuter `npm install` depuis le terminal de votre dossier de projet pour installer toutes les dépendances nécessaires.
-
-```
 
 ## Tâches du projet
 
