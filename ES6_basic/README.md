@@ -1,4 +1,3 @@
-````markdown
 # ES6 Basics
 
 ## Resources
@@ -171,4 +170,3 @@ Samuel Verschueren
 
 Ce projet est sous licence MIT.
 ```
-````
