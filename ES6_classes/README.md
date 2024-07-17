@@ -48,20 +48,26 @@ sudo apt install nodejs -y
 
 ```
 
+````
 $ nodejs -v
+```
 v12.11.1
+```
 $ npm -v
+```
 6.11.3
-
 ````
 
 ### Installer Jest, Babel et ESLint
+
 Dans votre répertoire de projet :
-* Installer Jest en utilisant : `npm install --save-dev jest`
-* Installer Babel en utilisant : `npm install --save-dev babel-jest @babel/core @babel/preset-env`
-* Installer ESLint en utilisant : `npm install --save-dev eslint`
+
+- Installer Jest en utilisant : `npm install --save-dev jest`
+- Installer Babel en utilisant : `npm install --save-dev babel-jest @babel/core @babel/preset-env`
+- Installer ESLint en utilisant : `npm install --save-dev eslint`
 
 ## Fichiers de configuration
+
 ### package.json
 
 ```json
@@ -84,7 +90,7 @@ Dans votre répertoire de projet :
     "jest": "^24.9.0"
   }
 }
-````
+```
 
 ### babel.config.js```javascript
 
