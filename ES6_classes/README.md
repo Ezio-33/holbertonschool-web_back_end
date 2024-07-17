@@ -49,15 +49,10 @@ sudo apt install nodejs -y
 ```
 
 $ nodejs -v
-```
-
 v12.11.1
-
-```
 $ npm -v
-```
-
 6.11.3
+```
 
 ### Installer Jest, Babel et ESLint
 
@@ -160,7 +155,3 @@ N'oubliez pas de lancer $ npm install lorsque vous avez le package.json
 8. Primitive - Holberton Class
 9. Hoisting
 10. Vroom
-
-```
-
-```
