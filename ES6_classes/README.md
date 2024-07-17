@@ -1,4 +1,3 @@
-```markdown
 # Classes ES6
 
 ## Description
@@ -38,6 +37,7 @@ Lire ou regarder :
 ### Installer NodeJS 12.11.x
 
 (dans votre répertoire personnel) :
+
 ```
 
 curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
@@ -48,15 +48,16 @@ sudo apt install nodejs -y
 
 ```
 
-````
 $ nodejs -v
 ```
+
 v12.11.1
+
 ```
 $ npm -v
 ```
+
 6.11.3
-````
 
 ### Installer Jest, Babel et ESLint
 
