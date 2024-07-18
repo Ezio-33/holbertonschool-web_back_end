@@ -140,7 +140,7 @@ module.exports = {
 };
 ```
 
-N'oubliez pas de lancer $ npm install lorsque vous avez le package.json
+N'oubliez pas de lancer $ `npm install` lorsque vous avez le package.json
 
 ## Tasks
 
