@@ -17,6 +17,14 @@ Ce projet vise à enseigner les concepts avancés de manipulation de données en
 - Connaissances de base en JavaScript.
 - NodeJS et npm installés sur votre machine.
 
+## Ressources
+
+- [Array](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array)
+- [Typed Array](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Set Data Structure](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Set)
+- [Map Data Structure](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [WeakMap](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+
 ## Installation
 
 1. **Installer NodeJS 20.x.x** :
@@ -124,18 +132,6 @@ Ce projet vise à enseigner les concepts avancés de manipulation de données en
      };
      ```
 
-## Licence
-
-Distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
-
 ## Auteurs
 
 - Samuel VERSCHUEREN
-
-## Ressources
-
-- [Array](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array)
-- [Typed Array](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Typed_arrays)
-- [Set Data Structure](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Set)
-- [Map Data Structure](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map)
-- [WeakMap](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
