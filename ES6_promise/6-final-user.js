@@ -1,7 +1,11 @@
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-export default async function handleProfileSignup(firstName, lastName, fileName) {
+export default async function handleProfileSignup(
+  firstName,
+  lastName,
+  fileName,
+) {
   const userPromise = signUpUser(firstName, lastName);
   const photoPromise = uploadPhoto(fileName);
   const results = await Promise.allSettled([userPromise, photoPromise]);
@@ -15,7 +19,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     }
     return {
       status: 'rejected',
-      value: result.reason,
+      value: result.reason.toString(), // Convertir l'erreur en chaîne de caractères
     };
   });
 }
