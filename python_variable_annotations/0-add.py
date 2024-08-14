@@ -3,6 +3,7 @@
 Module pour réaliser l'addition de deux flottants avec annotations de type.
 """
 
+
 def add(a: float, b: float) -> float:
     """
     Retourne la somme de deux nombres flottants.

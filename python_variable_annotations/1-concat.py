@@ -3,6 +3,7 @@
 Module pour concaténer deux chaînes de caractères avec annotations de type.
 """
 
+
 def concat(str1: str, str2: str) -> str:
     """
     Retourne la concaténation de deux chaînes de caractères.
