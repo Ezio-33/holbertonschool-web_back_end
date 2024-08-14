@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 """
-Module pour créer une fonction qui multiplie un flottant par un multiplicateur donné avec annotations de type.
+Module pour créer une fonction qui multiplie un
+flottant par un multiplicateur donné avec annotations de type.
 """
+
 
 from typing import Callable
 
+
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
-    Retourne une fonction qui multiplie un flottant par le multiplicateur donné.
+    Retourne une fonction qui multiplie un flottant
+    par le multiplicateur donné.
 
     Arguments:
     multiplier -- le multiplicateur à utiliser
 
     Return:
-    Une fonction qui prend un flottant et retourne le produit avec le multiplicateur.
+    Une fonction qui prend un flottant et retourne le
+    produit avec le multiplicateur.
     """
     def multiplier_function(value: float) -> float:
         """

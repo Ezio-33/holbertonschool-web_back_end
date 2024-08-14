@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Module pour convertir un flottant en chaîne de caractères avec annotations de type.
+Module pour convertir un flottant en chaîne de caractères
+avec annotations de type.
 """
+
 
 def to_str(n: float) -> str:
     """

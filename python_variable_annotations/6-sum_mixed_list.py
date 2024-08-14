@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """
-Module pour calculer la somme d'une liste mixte d'entiers et de flottants avec annotations de type.
+Module pour calculer la somme d'une liste mixte
+d'entiers et de flottants avec annotations de type.
 """
 
+
 from typing import List, Union
+
 
 def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """

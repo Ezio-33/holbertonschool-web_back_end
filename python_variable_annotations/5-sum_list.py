@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """
-Module pour calculer la somme d'une liste de flottants avec annotations de type.
+Module pour calculer la somme d'une liste de
+flottants avec annotations de type.
 """
 
+
 from typing import List
+
 
 def sum_list(input_list: List[float]) -> float:
     """
@@ -15,4 +18,5 @@ def sum_list(input_list: List[float]) -> float:
     Return:
     La somme des nombres en tant que flottant.
     """
+
     return sum(input_list)
