@@ -1,0 +1,24 @@
+// Étape 1: Créer un index unique sur le champ `name`
+db.school.createIndex({ name: 1 }, { unique: true, sparse: true });
+
+// Étape 2: Identifier les doublons
+const duplicates = db.school.aggregate([
+  {
+    $group: {
+      _id: "$name",
+      uniqueIds: { $addToSet: "$_id" },
+      count: { $sum: 1 },
+    },
+  },
+  {
+    $match: {
+      count: { $gt: 1 },
+    },
+  },
+]);
+
+// Étape 3: Supprimer les doublons en gardant un seul document pour chaque `name`
+duplicates.forEach((doc) => {
+  doc.uniqueIds.shift(); // Garder un document
+  db.school.deleteMany({ _id: { $in: doc.uniqueIds } }); // Supprimer les autres
+});

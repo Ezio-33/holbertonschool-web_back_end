@@ -1,0 +1,6 @@
+// Met à jour tous les documents avec name="Holberton school" en ajoutant l'attribut address
+db.school.update(
+  { name: "Holberton school" },
+  { $set: { address: "972 Mission street" } },
+  { multi: true }
+)
