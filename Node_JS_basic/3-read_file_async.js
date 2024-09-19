@@ -1,37 +1,56 @@
-const fs = require('fs').promises;
+const fs = require("fs");
 
-async function countStudents(path) {
-  try {
-    const data = await fs.readFile(path, { encoding: 'utf8' });
-    const lines = data
-      .trim()
-      .split('\n')
-      .filter((line) => line.length > 0);
-    lines.shift();
-    if (lines.length === 0) {
-      console.log('Number of students: 0');
-      return;
-    }
-    const studentFields = {};
-    lines.forEach((line) => {
-      const [firstname, , , field] = line.split(',');
-      if (!studentFields[field]) {
-        studentFields[field] = [];
+function countStudents(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, "utf8", (err, data) => {
+      if (err) {
+        reject(new Error("Cannot load the database"));
+        return;
       }
-      studentFields[field].push(firstname);
-    });
-    console.log(`Number of students: ${lines.length}`);
-    for (const field in studentFields) {
-      if (field) {
-        const list = studentFields[field].join(', ');
+
+      const lines = data.split("\n").filter((line) => line.trim() !== "");
+
+      if (lines.length <= 1) {
+        reject(new Error("Cannot load the database"));
+        return;
+      }
+
+      const fields = {};
+
+      for (let i = 1; i < lines.length; i += 1) {
+        const line = lines[i].trim();
+
+        if (line) {
+          const student = line.split(",");
+
+          const firstName = student[0];
+          const field = student[3];
+
+          if (!fields[field]) {
+            fields[field] = [];
+          }
+
+          fields[field].push(firstName);
+        }
+      }
+
+      const numberOfStudents = Object.values(fields).reduce(
+        (acc, curr) => acc + curr.length,
+        0
+      );
+      console.log(`Number of students: ${numberOfStudents}`);
+
+      for (const [field, students] of Object.entries(fields)) {
         console.log(
-          `Number of students in ${field}: ${studentFields[field].length}. List: ${list}`,
+          `Number of students in ${field}: ${
+            students.length
+          }. List: ${students.join(", ")}`
         );
       }
-    }
-  } catch (err) {
-    throw new Error('Cannot load the database');
-  }
+
+      resolve();
+    });
+  });
 }
 
 module.exports = countStudents;
