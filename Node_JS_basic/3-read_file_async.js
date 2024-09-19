@@ -7,12 +7,6 @@ async function countStudents(path) {
       .trim()
       .split("\n")
       .filter((line) => line.length > 0);
-    lines.shift();
-    if (lines.length === 0) {
-      console.log("Number of students: 0");
-      return;
-    }
-    const studentFields = {};
     lines.forEach((line) => {
       const [firstname, , , field] = line.split(",");
       if (!studentFields[field]) {
