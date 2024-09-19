@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 function countStudents(path) {
   return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ function countStudents(path) {
         const fields = {};
         for (const student of students.slice(1)) {
           if (student.length === 4) {
-            const [firstName, lastName, age, field] = student;
+            const [firstName, , , field] = student;
             if (fields[field]) {
               fields[field].push(firstName);
             } else {
