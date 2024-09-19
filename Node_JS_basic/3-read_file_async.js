@@ -8,7 +8,7 @@ async function countStudents(path) {
       .split("\n")
       .filter((line) => line.length > 0);
     lines.shift();
-    if (lines.length === 0) {
+    if (lines.lenght === 0) {
       console.log("Number of students: 0");
       return;
     }
@@ -33,5 +33,4 @@ async function countStudents(path) {
     throw new Error("Cannot load the database");
   }
 }
-
 module.exports = countStudents;
