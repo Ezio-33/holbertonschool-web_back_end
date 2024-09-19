@@ -1,59 +1,39 @@
-const http = require('http');
-const fs = require('fs');
-const url = require('url');
+const http = require("http");
+const countStudents = require("./3-read_file_async");
 
-const app = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url, true);
-  if (parsedUrl.pathname === '/') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello Holberton School!');
-  } else if (parsedUrl.pathname === '/students') {
-    const databasePath = process.argv[2];
-    fs.readFile(databasePath, 'utf8', (err, data) => {
-      if (err) {
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Cannot load the database');
-      } else {
-        const students = data
-          .split('\n')
-          .map((line) => line.trim())
-          .filter((line) => line !== '')
-          .map((line) => line.split(','));
+const dbfile = process.argv[2];
 
-        let responseText = 'This is the list of our students\n';
-        responseText += `Number of students: ${students.length - 1}\n`;
+const app = http.createServer(async (req, res) => {
+  if (req.url === "/") {
+    res.writeHead(200, { "content-type": "text/plain" });
+    res.end("Hello Holberton School!");
+  } else if (req.url === "/students") {
+    res.writeHead(200, { "content-type": "text/plain" });
+    res.write("This is the list of our students\n");
+    try {
+      const originalLog = console.log;
+      console.log = () => {};
+      let logs = "";
 
-        const fields = {};
-        for (const student of students.slice(1)) {
-          if (student.length === 4) {
-            const [firstName, lastName, age, field] = student;
-            if (fields[field]) {
-              fields[field].push(firstName);
-            } else {
-              fields[field] = [firstName];
-            }
-          }
-        }
+      console.log = (msg) => {
+        logs += `${msg}\n`;
+      };
 
-        for (const [field, names] of Object.entries(fields)) {
-          responseText += `Number of students in ${field}: ${
-            names.length
-          }. List: ${names.join(', ')}\n`;
-        }
-
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end(responseText);
-      }
-    });
+      await countStudents(dbfile);
+      console.log = originalLog;
+      res.write(logs);
+    } catch (error) {
+      res.write(error.message);
+    } finally {
+      res.end();
+    }
   } else {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Not Found');
+    res.writeHead(404, { "content-type": "text/plain" });
+    res.end("Invalid request");
   }
 });
 
-const PORT = 1245;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+app.listen(1245, () => {
+  console.log("Server listening on port 1245");
 });
-
 module.exports = app;
